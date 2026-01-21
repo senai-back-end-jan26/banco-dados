@@ -42,10 +42,11 @@ group by
 
 --4- Selecione os campos: título do filme, idioma, categoria,
 --quantia(aluguel), loja, país. (View)
+create view lista_filmes as
 select
 	f.title,
-	l."name",
-	c."name",
+	l."name" as "idioma",
+	c."name" as "categoria",
 	f.rental_rate,
 	a.address,
 	co.country
@@ -69,6 +70,8 @@ inner join city ci on
 	ci.city_id = a.city_id 
 inner join country co on
 	co.country_id = ci.country_id;
+
+select * from lista_filmes;
 
 
 

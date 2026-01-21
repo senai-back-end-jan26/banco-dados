@@ -28,11 +28,19 @@ inner join film_actor fa on f.film_id = fa.film_id
 inner join actor a on a.actor_id = fa.actor_id
 where a.actor_id = 5;
 
-select count(*), a.first_name from film f
-inner join film_actor fa on f.film_id = fa.film_id
-inner join actor a on a.actor_id = fa.actor_id
-where a.actor_id = 5
-group by a.first_name;
+select
+	count(*),
+	a.first_name
+from
+	film f
+inner join film_actor fa on
+	f.film_id = fa.film_id
+inner join actor a on
+	a.actor_id = fa.actor_id
+where
+	a.actor_id = 5
+group by
+	a.first_name;
 
 --7- Qual categoria possui mais filmes?
 select count(c."name"), c."name" from category c
